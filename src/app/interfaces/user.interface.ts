@@ -1,13 +1,9 @@
-/* export interface User {
-    name: string;
-    password: string;
-    email: string;
-} */
 export class User {
     _id?: number;
     name: string;
     email: string;
     points: number;
+    password: string | undefined; //no entenc perque surt aixi
     language?: string;
     myBookings: string[];
     myOpinions: string[];
