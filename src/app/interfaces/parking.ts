@@ -1,4 +1,4 @@
-import { User } from "../components/models/user";
+import { User } from 'src/app/interfaces/user.interface';
 
 export class Parking {
     _id?: string;
