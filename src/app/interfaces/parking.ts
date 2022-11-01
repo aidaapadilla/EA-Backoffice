@@ -1,9 +1,9 @@
-import { User } from "../components/models/user";
+import { User } from "src/app/interfaces/user.interface";
 
 export class Parking {
     _id?: string;
     id?: string;
-    user: User;
+    user?: User;
     opinions?: string[];
     type: string;
     price: number;
@@ -11,8 +11,8 @@ export class Parking {
     difficulty: number;
     score: number;
 
-    constructor(user: User, type: string, price: number,
-        size: string, difficulty: number, score: number) {
+    constructor(type: string, price: number,
+        size: string, difficulty: number, score: number, user?: User) {
         this.user = user;
         this.type = type;
         this.price = price;
