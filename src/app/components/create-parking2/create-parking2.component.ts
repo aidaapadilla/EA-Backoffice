@@ -1,6 +1,6 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { User } from 'src/app/interfaces/user.interface';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { ParkingService } from '../../services/parking.service';
 import { Validators } from '@angular/forms';
 import { Parking } from 'src/app/interfaces/parking';
 
@@ -10,27 +10,38 @@ import { Parking } from 'src/app/interfaces/parking';
   styleUrls: ['./create-parking2.component.css']
 })
 export class CreateParking2Component implements OnInit {
+  message = "";
   parking!: Parking;
-    @Output() addParking = new EventEmitter<Parking>();
-    parkingForm = new FormGroup({
-        //country: new FormControl('', Validators.required), //En parking.ts he de posar el que falta
-        //city: new FormControl('', [Validators.required]),
-        //street: new FormControl('', [Validators.required]), // Validators.min(6)
-        //spotNumber: new FormControl('', [Validators.required]),
-        type: new FormControl('', [Validators.required]),
-        price: new FormControl('', [Validators.required]), //Number
-        size: new FormControl('', [Validators.required]),
-        difficulty: new FormControl('', [Validators.required, Validators.max(2)]), //Number
-        score: new FormControl('', [Validators.required]) //Number
-    })
-  constructor() { }
+  @Output() addParking = new EventEmitter<Parking>();
+  parkingForm = new FormGroup({
+    email: new FormControl('', [Validators.required]),
+    type: new FormControl('', [Validators.required]),
+    price: new FormControl('', [Validators.required]), 
+    size: new FormControl('', [Validators.required]),
+    difficulty: new FormControl('', [Validators.required, Validators.max(2)]), 
+    country: new FormControl('Spain', Validators.required), 
+    city: new FormControl('', [Validators.required]),
+    street: new FormControl('', [Validators.required]), 
+    spotNumber: new FormControl('', [Validators.required]),
+    streetNumber: new FormControl('', [Validators.required])
+  })
+  constructor(private _fb: FormBuilder, private _parkingService: ParkingService) { }
 
   ngOnInit(): void { //Podem guardar el usuari complet al token
-  } 
-  onSubmit() {// Buscar com fer la conversio
-    //this.parking = new Parking(this.parkingForm.value.type, this.parkingForm.value.price,this.parkingForm.value.size,this.parkingForm.value.difficulty,this.parkingForm.value.score) 
-    //this.parking = <Parking>this.parkingForm.value
-    this.addParking.emit(this.parking);
+  }
+  onSubmit() {
+    this.parking = <Parking>this.parkingForm.value;
+    //this.addParking.emit(this.parking);
+    this._parkingService.addParking(this.parking).subscribe({
+      next: data => {
+        console.log(data);
+        this.message = "Created!"
+      },
+      error: error => {
+        console.log(error);
+        this.message = "Error!"
+      }
+    })
   }
 
 }

@@ -1,65 +1,64 @@
+<mat-toolbar color="primary">Crear un parking</mat-toolbar>
+<router-outlet></router-outlet>
 <form [formGroup]="parkingForm" (ngSubmit)="onSubmit()">
     <p>
         <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="name">
-        </mat-form-field>
-    </p>
-
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Country</mat-label>
             <input matInput formControlName="email">
-        </mat-form-field>
-    </p>
-
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>City</mat-label>
-            <input matInput formControlName="password">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Street</mat-label>
-            <input matInput formControlName="name">
-        </mat-form-field>
-    </p>
-
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Street number</mat-label>
-            <input matInput formControlName="name">
-        </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Spot Number</mat-label>
-            <input matInput formControlName="name">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field appearance="fill">
             <mat-label>Type of car</mat-label>
-            <input matInput formControlName="name">
+            <input matInput formControlName="type">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field appearance="fill">
             <mat-label>Price</mat-label>
-            <input matInput formControlName="name">
+            <input matInput formControlName="price">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field appearance="fill">
             <mat-label>Size</mat-label>
-            <input matInput formControlName="name">
+            <input matInput formControlName="size">
         </mat-form-field>
     </p>
     <p>
         <mat-form-field appearance="fill">
             <mat-label>Difficulty</mat-label>
-            <input matInput formControlName="name">
+            <input matInput formControlName="difficulty">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="city">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Street</mat-label>
+            <input matInput formControlName="street">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Spot Number</mat-label>
+            <input matInput formControlName="spotNumber">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="fill">
+            <mat-label>Street Number</mat-label>
+            <input matInput formControlName="streetNumber">
         </mat-form-field>
     </p>
     <p>
