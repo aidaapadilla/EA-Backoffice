@@ -16,3 +16,4 @@ export class UserComponent implements OnInit {
     this.deleteUser.emit(this.user)
   }
 }
+//SERVEIX PER NOMÉS UN USUARI

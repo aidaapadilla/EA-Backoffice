@@ -9,9 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { FormComponent } from './components/form/form.component';
-
+import { CreateParking2Component } from './components/create-parking2/create-parking2.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     UserComponent,
     UsersComponent,
     FormComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    CreateParking2Component
+   
   ],
   imports: [
     BrowserModule,
