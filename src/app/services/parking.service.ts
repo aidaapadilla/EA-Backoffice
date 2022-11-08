@@ -7,9 +7,13 @@ import { Parking } from 'src/app/interfaces/parking';
     providedIn: 'root'
 })
 export class UserService {
-    url = 'http://localhost:5432/api/parkings';
+    url = 'http://localhost:5432/api/parkings/';
 
     constructor(private http: HttpClient) { }
+
+    getParkings(): Observable<Parking[]> { //BARTO
+      return this.http.get<Parking[]>(this.apiURL);
+    }
 
     addParking(parking: Parking): Observable<Parking> {
         return this.http.post<Parking>(this.url + '/register', parking);
