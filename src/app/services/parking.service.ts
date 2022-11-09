@@ -7,12 +7,16 @@ import { Parking } from 'src/app/interfaces/parking';
     providedIn: 'root'
 })
 export class ParkingService {
-    url = 'http://localhost:5432/api/parkings';
+    url = 'http://localhost:5432/api/parkings/';
 
     constructor(private http: HttpClient) { }
 
+    getParkings(): Observable<Parking[]> {
+      return this.http.get<Parking[]>(this.url);
+    }
+
     addParking(parking: Parking): Observable<Parking> {
-        return this.http.post<Parking>(this.url + '/', parking);
+        return this.http.post<Parking>(this.url, parking);
     }
 
 }
