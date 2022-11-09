@@ -8,6 +8,7 @@ import { User } from 'src/app/interfaces/user.interface';
 export class UserComponent implements OnInit {
   @Input() user!: User
   @Output() deleteUser = new EventEmitter<User>();
+  @Output() updateUser = new EventEmitter<User>();
   constructor() { }
 
   ngOnInit(): void {
@@ -15,5 +16,7 @@ export class UserComponent implements OnInit {
   delete():void{
     this.deleteUser.emit(this.user)
   }
+  update(){
+    this.updateUser.emit(this.user);
+  }
 }
-//SERVEIX PER NOMÉS UN USUARI
