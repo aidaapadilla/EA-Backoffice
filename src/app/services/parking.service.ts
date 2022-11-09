@@ -19,4 +19,7 @@ export class ParkingService {
         return this.http.post<Parking>(this.url, parking);
     }
 
+    deleteParking(id: string): Observable<Parking> {
+        return this.http.delete<Parking>(this.url + id);
+    }
 }

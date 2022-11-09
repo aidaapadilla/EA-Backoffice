@@ -16,12 +16,12 @@ export class UsersService {
   private apiURL = 'http://localhost:5432/api/users/';
   constructor(private http: HttpClient) { }
 
-  getUsers(): Observable<User[]> { //BARTO
+  getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiURL);
   }
-  delete(user: string): Observable<User> { //BARTO
-    return this.http.delete<User>(this.apiURL + 'delete/' + user)
 
+  delete(id: string): Observable<User> {
+    return this.http.delete<User>(this.apiURL + id);
   }
 
   logIn(userData:LogIn): Observable<HttpResponse<User>>{
@@ -33,12 +33,17 @@ export class UsersService {
     this.userSource.next(user);
   }
 
-  addUser(user: User): Observable<User> { //BARTO
+  addUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiURL + 'register/', user)
-
   }
 
-  deleteUser(id: string): Observable<User> {
-    return this.http.delete<User>(this.apiURL + '/delete/' + id);
+  updateUser(user: User, id: string): Observable<User> {
+    console.log(id);
+    console.log(user);
+    return this.http.put<User>(this.apiURL + 'update/' + id, user)
   }
+
+  /* deleteUser(id: string): Observable<User> {
+    return this.http.delete<User>(this.apiURL + 'delete/' + id);
+  } */
 }
