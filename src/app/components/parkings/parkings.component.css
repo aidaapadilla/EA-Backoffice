@@ -3,9 +3,3 @@ div.parkings{
     justify-content: center;
     flex-wrap: wrap;
 }
-div.form{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
