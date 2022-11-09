@@ -23,4 +23,22 @@ parkings!: Parking[];
       .subscribe();
   }
 
+  cancelOneParking(parking: Parking): void {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '500px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.parkingSrv.deleteParking(parking._id!).subscribe({
+          next: data => {
+            console.log(data);
+          }, 
+          error: error => {
+          console.log(error);
+          }
+        })
+      }
+    });
+  }
 }

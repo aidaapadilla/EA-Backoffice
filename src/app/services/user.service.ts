@@ -23,8 +23,8 @@ export class UsersService {
   }
 
   updateUser(user: User, id: string): Observable<User> {
-    console.log(user);
     console.log(id);
+    console.log(user);
     return this.http.put<User>(this.apiURL + 'update/' + id, user)
   }
 

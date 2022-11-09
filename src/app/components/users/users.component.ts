@@ -57,9 +57,6 @@ export class UsersComponent implements OnInit {
       myOpinions: user.myOpinions,
       myParkings: user.myParkings
     } 
-    console.log(user);
-    console.log(user._id);
-    console.log(editedUser);
     this.userSrv.updateUser(editedUser, user._id!).subscribe({
       next: data => {
         console.log(data);
