@@ -7,6 +7,7 @@ import { UserComponent } from './components/user/user.component';
 import { UsersComponent } from './components/users/users.component';
 import { ParkingComponent } from './components/parking/parking.component';
 import { ParkingsComponent } from './components/parkings/parkings.component';
+import { LoginComponent } from './components/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { MaterialModule } from './material.module';
@@ -21,6 +22,7 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
     AppComponent,
     UserComponent,
     UsersComponent,
+    LoginComponent,
     ParkingComponent,
     ParkingsComponent,
     FormComponent,
