@@ -3,6 +3,8 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ParkingService } from '../../services/parking.service';
 import { Validators } from '@angular/forms';
 import { Parking } from 'src/app/interfaces/parking';
+import { ParkingsComponent } from 'src/app/components/parkings/parkings.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-parking2',
@@ -16,16 +18,16 @@ export class CreateParking2Component implements OnInit {
   parkingForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
     type: new FormControl('', [Validators.required]),
-    price: new FormControl('', [Validators.required]), 
+    price: new FormControl('', [Validators.required]),
     size: new FormControl('', [Validators.required]),
-    difficulty: new FormControl('', [Validators.required, Validators.max(2)]), 
-    country: new FormControl('Spain', Validators.required), 
+    difficulty: new FormControl('', [Validators.required, Validators.max(2)]),
+    country: new FormControl('Spain', Validators.required),
     city: new FormControl('', [Validators.required]),
-    street: new FormControl('', [Validators.required]), 
+    street: new FormControl('', [Validators.required]),
     spotNumber: new FormControl('', [Validators.required]),
     streetNumber: new FormControl('', [Validators.required])
   })
-  constructor(private _fb: FormBuilder, private _parkingService: ParkingService) { }
+  constructor(private _fb: FormBuilder, private _parkingService: ParkingService, public dialog: MatDialog) { }
 
   ngOnInit(): void { //Podem guardar el usuari complet al token
   }
@@ -42,6 +44,9 @@ export class CreateParking2Component implements OnInit {
         this.message = "Error!"
       }
     })
+    if (this.message == "Created!") {
+      const dialogRef = this.dialog.open(ParkingsComponent,{});
+    }
   }
 
 }

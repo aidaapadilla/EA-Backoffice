@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LogIn } from 'src/app/interfaces/login.interface';
 import { User } from 'src/app/interfaces/user.interface';
-import { AES } from "crypto-js";
+//import { AES } from "crypto-js";
 import { UsersService } from 'src/app/services/user.service';
 
 @Component({
