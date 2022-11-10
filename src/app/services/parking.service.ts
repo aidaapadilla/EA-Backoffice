@@ -6,13 +6,20 @@ import { Parking } from 'src/app/interfaces/parking';
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
-    url = 'http://localhost:5432/api/parkings';
+export class ParkingService {
+    url = 'http://localhost:5432/api/parkings/';
 
     constructor(private http: HttpClient) { }
 
-    addParking(parking: Parking): Observable<Parking> {
-        return this.http.post<Parking>(this.url + '/register', parking);
+    getParkings(): Observable<Parking[]> {
+      return this.http.get<Parking[]>(this.url);
     }
 
+    addParking(parking: Parking): Observable<Parking> {
+        return this.http.post<Parking>(this.url, parking);
+    }
+
+    deleteParking(id: string): Observable<Parking> {
+        return this.http.delete<Parking>(this.url + id);
+    }
 }

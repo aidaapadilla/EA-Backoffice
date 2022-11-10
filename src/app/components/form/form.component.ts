@@ -24,4 +24,5 @@ export class FormComponent implements OnInit {
     this.user=<User>this.userForm.value
     this.addUser.emit(this.user)
   }
+  
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { tap } from 'rxjs';
+import { ConnectableObservable, tap } from 'rxjs';
 import { User } from '../../interfaces/user.interface';
 import { UsersService } from '../../services/user.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
@@ -27,20 +27,44 @@ export class UsersComponent implements OnInit {
   deleteOneUser(user: User): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '500px',
-      data: {name: user.name}
+      data: {email: user._id}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
-        this.userSrv.delete(user.name).subscribe(
-          data =>  { if(data.name == user.name){
-            this.users = this.users.filter(usr => usr.name != data.name)
+        this.userSrv.delete(user._id!).subscribe(
+          data =>  { if(data._id == user._id){
+            this.users = this.users.filter(usr => usr._id != data._id)
           }}
         );
       }
     });
+  }
 
-      
+  updateOneUser(user: User): void {
+    let newName = (<HTMLInputElement>document.getElementById("newName")).value;
+    let newEmail = (<HTMLInputElement>document.getElementById("newEmail")).value;
+    console.log(newName);
+    console.log(newEmail);
+    const editedUser: User = {
+      _id: user._id,
+      name: newName,
+      email: newEmail,
+      password: user.password,
+      points: user.points,
+      myBookings: user.myBookings,
+      myFavourites: user.myFavourites,
+      myOpinions: user.myOpinions,
+      myParkings: user.myParkings
+    } 
+    this.userSrv.updateUser(editedUser, user._id!).subscribe({
+      next: data => {
+        console.log(data);
+      }, 
+      error: error => {
+      console.log(error);
+      }
+    })
   }
 
   userAdd(user: User): void{
@@ -50,6 +74,5 @@ export class UsersComponent implements OnInit {
         }}
       )
   }
-  
 
 }
