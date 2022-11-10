@@ -15,10 +15,12 @@ export class ParkingComponent implements OnInit {
   ngOnInit(): void {
   }
   cancel():void{
-    this.cancelParking.emit(this.parking)
+    this.cancelParking.emit(this.parking);
+    location.reload();
   }
   update(){
     this.updateParking.emit(this.parking);
+    location.reload();
   }
 
 }

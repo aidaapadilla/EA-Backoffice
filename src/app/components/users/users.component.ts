@@ -25,20 +25,11 @@ export class UsersComponent implements OnInit {
     
   }
   deleteOneUser(user: User): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: '500px',
-      data: {email: user._id}
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.userSrv.delete(user._id!).subscribe(
-          data =>  { if(data._id == user._id){
-            this.users = this.users.filter(usr => usr._id != data._id)
-          }}
-        );
-      }
-    });
+    this.userSrv.delete(user._id!).subscribe(
+      data =>  { if(data._id == user._id){
+        this.users = this.users.filter(usr => usr._id != data._id)
+      }}
+    );
   }
 
   updateOneUser(user: User): void {
