@@ -9,12 +9,16 @@ import { Parking } from 'src/app/interfaces/parking';
 export class ParkingComponent implements OnInit {
   @Input() parking!: Parking
   @Output() cancelParking = new EventEmitter<Parking>();
+  @Output() updateParking = new EventEmitter<Parking>();
   constructor() { }
 
   ngOnInit(): void {
   }
   cancel():void{
     this.cancelParking.emit(this.parking)
+  }
+  update(){
+    this.updateParking.emit(this.parking);
   }
 
 }

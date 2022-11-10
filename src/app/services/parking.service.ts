@@ -22,4 +22,9 @@ export class ParkingService {
     deleteParking(id: string): Observable<Parking> {
         return this.http.delete<Parking>(this.url + id);
     }
+    updateUser(parking: Parking, id: string): Observable<Parking> {
+        console.log(id);
+        console.log(parking);
+        return this.http.put<Parking>(this.url + 'update/' + id, parking)
+      }
 }
