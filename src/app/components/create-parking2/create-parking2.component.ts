@@ -5,6 +5,7 @@ import { Validators } from '@angular/forms';
 import { Parking } from 'src/app/interfaces/parking';
 import { ParkingsComponent } from 'src/app/components/parkings/parkings.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-parking2',
@@ -27,7 +28,7 @@ export class CreateParking2Component implements OnInit {
     spotNumber: new FormControl('', [Validators.required]),
     streetNumber: new FormControl('', [Validators.required])
   })
-  constructor(private _fb: FormBuilder, private _parkingService: ParkingService, public dialog: MatDialog) { }
+  constructor(private _fb: FormBuilder, private _parkingService: ParkingService, private router: Router) { }
 
   ngOnInit(): void { //Podem guardar el usuari complet al token
   }
@@ -45,7 +46,7 @@ export class CreateParking2Component implements OnInit {
       }
     })
     if (this.message == "Created!") {
-      const dialogRef = this.dialog.open(ParkingsComponent,{});
+      this.router.navigate(['parkings']);
     }
   }
 
