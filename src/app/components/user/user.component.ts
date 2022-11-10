@@ -16,7 +16,9 @@ export class UserComponent implements OnInit {
   delete():void{
     this.deleteUser.emit(this.user)
   }
-  update(){
+  update(newName: string, newEmail: string){
+    this.user.name = newName;
+    this.user.email = newEmail;
     this.updateUser.emit(this.user);
   }
 }

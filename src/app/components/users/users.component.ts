@@ -42,14 +42,14 @@ export class UsersComponent implements OnInit {
   }
 
   updateOneUser(user: User): void {
-    let newName = (<HTMLInputElement>document.getElementById("newName")).value;
-    let newEmail = (<HTMLInputElement>document.getElementById("newEmail")).value;
-    console.log(newName);
-    console.log(newEmail);
+    //let newName = (<HTMLInputElement>document.getElementById("newName")).value;
+    //let newEmail = (<HTMLInputElement>document.getElementById("newEmail")).value;
+    console.log(user.name);
+    console.log(user.email);
     const editedUser: User = {
       _id: user._id,
-      name: newName,
-      email: newEmail,
+      name: user.name,
+      email: user.email,
       password: user.password,
       points: user.points,
       myBookings: user.myBookings,

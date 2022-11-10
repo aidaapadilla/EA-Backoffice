@@ -6,8 +6,8 @@
         <mat-card-content>User Mail: {{user.email}}</mat-card-content>
         <mat-card-content>User Pasword: {{user.password}}</mat-card-content>
         <mat-card-actions><button mat-raised-button color="warn" (click)="delete()">delete</button></mat-card-actions>
-            <input name="newName" type="text" id="newName" placeholder="new Name">
-            <input name="newEmail" type="text" id="newEmail" placeholder="new Email">
-        <mat-card-actions><button mat-raised-button color="warn" (click)="update()">update</button></mat-card-actions>
+            <input name="newName" type="text" id="newName" placeholder="new Name" #newName>
+            <input name="newEmail" type="text" id="newEmail" placeholder="new Email" #newEmail>
+        <mat-card-actions><button mat-raised-button color="warn" (click)="update(newName.value, newEmail.value)">update</button></mat-card-actions>
     </mat-card>
 </div>
