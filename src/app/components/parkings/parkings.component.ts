@@ -24,23 +24,16 @@ parkings!: Parking[];
   }
 
   cancelOneParking(parking: Parking): void {
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      width: '500px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
-        this.parkingSrv.deleteParking(parking._id!).subscribe({
-          next: data => {
-            console.log(data);
-          }, 
-          error: error => {
-          console.log(error);
-          }
-        })
+    this.parkingSrv.deleteParking(parking._id!).subscribe({
+      next: data => {
+        console.log(data);
+      }, 
+      error: error => {
+      console.log(error);
       }
-    });
+    })
   }
+  
   updateOneParking(parking: Parking): void {
     let newPrice = (<HTMLInputElement>document.getElementById("newPrice")).value;
     console.log(newPrice);

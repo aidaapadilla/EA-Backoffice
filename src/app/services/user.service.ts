@@ -34,12 +34,11 @@ export class UsersService {
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiURL + 'register/', user)
+    console.log(user);
+    return this.http.post<User>(this.apiURL + '/register', user)
   }
 
   updateUser(user: User, id: string): Observable<User> {
-    console.log(id);
-    console.log(user);
     return this.http.put<User>(this.apiURL + 'update/' + id, user)
   }
 
