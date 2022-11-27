@@ -1,0 +1,25 @@
+<form [formGroup]="reportForm" (ngSubmit)="onSubmit()" class="form">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Reporting user's email</mat-label>
+        <input matInput formControlName="reportingUser" placeholder="reporting user's email">
+      </mat-form-field>
+    </p>
+  
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" placeholder="description of bug">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Bug or improvement? </mat-label>
+        <input matInput formControlName="type" placeholder="type of report">
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!reportForm.valid" class="button">SUBMIT</button>
+    </p>
+  </form>
