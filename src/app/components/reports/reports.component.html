@@ -1,0 +1,17 @@
+<div class="report">
+    <mat-card class="card" *ngFor="let report of listReports">
+        <mat-card-header>
+            <mat-card-title>{{ report._id }}</mat-card-title>
+            </mat-card-header>
+        <mat-card-content>Reporting user: {{ report.user }}</mat-card-content>
+        <mat-card-content>Description: {{report.text}}</mat-card-content>
+        <mat-card-content>Type: {{report.type}}</mat-card-content>
+        <mat-card-content>Level: {{report.level}}</mat-card-content>
+        <mat-card-content>Time: {{report.time}}</mat-card-content>
+        <mat-card-actions><button mat-raised-button color="warn" (click)="deleteReport(report._id!)">delete</button></mat-card-actions>
+        <!-- <p>Is the report closed?</p>
+        <input type="radio" id="closed" [(ngModel)]="myRadio" value="true">Yes
+        <input type="radio" id="open" [(ngModel)]="myRadio" value="false">No
+        <mat-card-actions><button mat-raised-button color="warn" (click)="updateStatus(this.report)">update</button></mat-card-actions> -->
+    </mat-card>
+</div>

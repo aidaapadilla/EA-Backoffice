@@ -16,7 +16,9 @@ export class Parking {
     street: string;
     spotNumber: string;
     streetNumber: string;
-
+    longitude: number;
+    latitude: number;
+    range: string;
 
     constructor(type: string, price: string,
         size: string, difficulty: string, city: string, street: string, spotNumber: string, streetNumber:string, email:string, user?: User, country?: string) {
@@ -31,5 +33,8 @@ export class Parking {
         this.spotNumber = spotNumber;
         this.streetNumber = streetNumber;
         this.email = email;
+        this.longitude = 0;
+        this.latitude = 0;
+        this.range = "";
     }
 }

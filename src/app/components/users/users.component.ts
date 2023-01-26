@@ -46,7 +46,9 @@ export class UsersComponent implements OnInit {
       myBookings: user.myBookings,
       myFavourites: user.myFavourites,
       myOpinions: user.myOpinions,
-      myParkings: user.myParkings
+      myParkings: user.myParkings,
+      myReports: user.myReports,
+      chats: user.chats,
     } 
     this.userSrv.updateUser(editedUser, user._id!).subscribe({
       next: data => {

@@ -9,8 +9,10 @@ export class User {
     myOpinions: string[];
     myFavourites: string[];
     myParkings: string[];
+    myReports: string[];
+    chats: string[];
 
-    constructor(name: string, email: string, points: number, language: string, 
+    constructor(myReports: string[], name: string, email: string, points: number, language: string, 
         myBookings: string[], myOpinions: string[], myFavourites: string[], myParkings: string[]) {
         this.name = name;
         this.email = email;
@@ -20,5 +22,7 @@ export class User {
         this.myOpinions = myOpinions;
         this.myFavourites = myFavourites;
         this.myParkings = myParkings;
+        this.myReports = myReports;
+        this.chats = [];
     }
 }

@@ -1,0 +1,40 @@
+<form [formGroup]="reportForm" (ngSubmit)="onSubmit()" class="form">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Reporting user's email</mat-label>
+        <input matInput formControlName="user" placeholder="reporting user's email">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Text</mat-label>
+        <input matInput formControlName="text" placeholder="description of report">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Type of report? </mat-label>
+        <input matInput formControlName="type" placeholder="type of report">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Level</mat-label>
+        <input matInput formControlName="level" placeholder="level of report">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Date of report</mat-label>
+        <input matInput formControlName="date" placeholder="date of report">
+      </mat-form-field>
+    </p>
+
+    <p>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!reportForm.valid" class="button">SUBMIT</button>
+    </p>
+  </form>

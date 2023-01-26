@@ -27,4 +27,10 @@ export class AppComponent {
   goToParkingList() {
     this.router.navigate(['/', 'parkings']);
   }
+  goToAddReport() {
+    this.router.navigate(['/', 'newreport']);
+  }
+  goToReportList() {
+    this.router.navigate(['/', 'reports']);
+  }
 }

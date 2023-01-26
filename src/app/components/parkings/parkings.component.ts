@@ -50,7 +50,10 @@ parkings!: Parking[];
       city: parking.city,
       street: parking.street,
       spotNumber: parking.spotNumber,
-      streetNumber: parking.streetNumber
+      streetNumber: parking.streetNumber,
+      latitude: 0,
+      longitude: 0,
+      range: "",
     } 
     this.parkingSrv.updateUser(editedParking, parking._id!).subscribe({
       next: data => {
