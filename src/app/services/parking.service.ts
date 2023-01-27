@@ -11,18 +11,18 @@ export class ParkingService {
 
     constructor(private http: HttpClient) { }
 
+    // OK
     getParkings(): Observable<Parking[]> {
       return this.http.get<Parking[]>(this.url);
     }
 
+    // torna auth true pero no el crea
     addParking(parking: Parking): Observable<Parking> {
-        return this.http.post<Parking>(this.url, parking);
+        return this.http.post<Parking>(this.url + 'office', parking);
     }
 
+    // fet pero no testejat
     deleteParking(id: string): Observable<Parking> {
         return this.http.delete<Parking>(this.url + id);
     }
-    updateUser(parking: Parking, id: string): Observable<Parking> {
-        return this.http.put<Parking>(this.url + 'update/' + id, parking)
-      }
 }

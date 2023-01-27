@@ -32,34 +32,6 @@ export class UsersComponent implements OnInit {
     );
   }
 
-  updateOneUser(user: User): void {
-    //let newName = (<HTMLInputElement>document.getElementById("newName")).value;
-    //let newEmail = (<HTMLInputElement>document.getElementById("newEmail")).value;
-    console.log(user.name);
-    console.log(user.email);
-    const editedUser: User = {
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      password: user.password,
-      points: user.points,
-      myBookings: user.myBookings,
-      myFavourites: user.myFavourites,
-      myOpinions: user.myOpinions,
-      myParkings: user.myParkings,
-      myReports: user.myReports,
-      chats: user.chats,
-    } 
-    this.userSrv.updateUser(editedUser, user._id!).subscribe({
-      next: data => {
-        console.log(data);
-      }, 
-      error: error => {
-      console.log(error);
-      }
-    })
-  }
-
   userAdd(user: User): void{
       this.userSrv.addUser(user).subscribe(
         data => {if(data.name == user.name){

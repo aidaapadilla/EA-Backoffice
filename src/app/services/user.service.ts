@@ -16,33 +16,27 @@ export class UsersService {
   private apiURL = 'http://localhost:5432/api/users/';
   constructor(private http: HttpClient) { }
 
+  // OK
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.apiURL);
   }
 
+  // fet no testejat
   delete(id: string): Observable<User> {
     return this.http.delete<User>(this.apiURL + id);
   }
 
+  // fet no testejat
   logIn(userData:LogIn): Observable<HttpResponse<User>>{
-    return this.http.post<User>(this.apiURL + 'login/', userData, {observe: 'response'})
+    return this.http.post<User>('http://localhost:5432/api/ath/login/', userData, {observe: 'response'})
   }
 
   newUserLogged(user: User) {
-    //console.log("user a service: " + JSON.stringify(user));
     this.userSource.next(user);
   }
 
+  // OK
   addUser(user: User): Observable<User> {
-    console.log(user);
     return this.http.post<User>(this.apiURL + '/register', user)
   }
-
-  updateUser(user: User, id: string): Observable<User> {
-    return this.http.put<User>(this.apiURL + 'update/' + id, user)
-  }
-
-  /* deleteUser(id: string): Observable<User> {
-    return this.http.delete<User>(this.apiURL + 'delete/' + id);
-  } */
 }

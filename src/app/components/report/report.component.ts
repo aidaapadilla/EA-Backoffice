@@ -12,9 +12,11 @@ export class ReportComponent implements OnInit {
   report!: Report;
   @Output() addReport = new EventEmitter<Report>();
   reportForm = new FormGroup({
-    reportingUser: new FormControl(),
-    description: new FormControl(),
-    type: new FormControl()
+    user: new FormControl(),
+    text: new FormControl(),
+    type: new FormControl(),
+    date: new FormControl(),
+    level: new FormControl()
   })
 
   constructor(private _fb: FormBuilder, private _reportService: ReportsService) { }
@@ -31,6 +33,6 @@ export class ReportComponent implements OnInit {
         console.log(error);
       }
     })
-    location.reload();
+    //location.reload();
   }
 }

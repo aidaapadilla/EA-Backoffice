@@ -33,35 +33,4 @@ parkings!: Parking[];
       }
     })
   }
-  
-  updateOneParking(parking: Parking): void {
-    let newPrice = (<HTMLInputElement>document.getElementById("newPrice")).value;
-    console.log(newPrice);
-    const editedParking: Parking = {
-      _id: parking._id,
-      user: parking.user,
-      opinions:parking.opinions,
-      email: parking.email,
-      type: parking.type,
-      price: newPrice,
-      size: parking.size,
-      difficulty: parking.difficulty,
-      score: parking.score,
-      city: parking.city,
-      street: parking.street,
-      spotNumber: parking.spotNumber,
-      streetNumber: parking.streetNumber,
-      latitude: 0,
-      longitude: 0,
-      range: "",
-    } 
-    this.parkingSrv.updateUser(editedParking, parking._id!).subscribe({
-      next: data => {
-        console.log(data);
-      }, 
-      error: error => {
-      console.log(error);
-      }
-    })
-  }
 }

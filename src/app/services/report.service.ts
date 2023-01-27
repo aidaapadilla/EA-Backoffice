@@ -1,4 +1,4 @@
-import { HttpClient,HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import { Report } from '../interfaces/report.interface';
@@ -25,7 +25,8 @@ export class ReportsService {
       return this.http.delete<Report>(this.apiURL + _id);
     }
 
-    addReport(report: Report): Observable<Report> {
+    // OK
+    addReport(report: Report): Observable<Report>  { 
       return this.http.post<Report>(this.apiURL, report)
     }
   }
