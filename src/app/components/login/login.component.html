@@ -1,3 +1,15 @@
+<!-- <mat-toolbar color="primary">WELCOME TO APARCA'M</mat-toolbar> -->
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>APARCA'M</h1>
+    <!--  <span>HOME</span> -->
+    <span class="spacer"></span>
+    <a mat-button (click)="goToAddUser()">Register</a>
+    <a mat-button (click)="goToLogin()"> Login </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>
 <div class="container">
   <div class="card">
     <mat-card>

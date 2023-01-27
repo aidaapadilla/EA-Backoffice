@@ -49,5 +49,29 @@ export class CreateParking2Component implements OnInit {
       this.router.navigate(['parkings']);
     }
   }
+  goToAddUser() {
+    this.router.navigate(['/', 'newuser']);
+  }
+  goToLogin() {
+    this.router.navigate(['/', 'user']);
+  }
+  goToUserList() {
+    this.router.navigate(['/', 'users']);
+  }
+  goToAddParking() {
+    this.router.navigate(['/', 'parking']);
+  }
+  goToParkingList() {
+    this.router.navigate(['/', 'parkings']);
+  }
+  goToAddReport() {
+    this.router.navigate(['/', 'newreport']);
+  }
+  goToReportList() {
+    this.router.navigate(['/', 'reports']);
+  }
+  goToLogOff(){
+    this.router.navigate(['/', 'user']);
+  }
 
 }

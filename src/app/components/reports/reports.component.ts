@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Report } from 'src/app/interfaces/report.interface';
 import { ReportsService } from 'src/app/services/report.service';
 
@@ -12,7 +13,7 @@ export class ReportsComponent implements OnInit {
   listReports: Report[] = [];
   myRadio: string = ''
 
-  constructor(private _reportService: ReportsService) { }
+  constructor(private _reportService: ReportsService, private router: Router) { }
 
   ngOnInit(): void {
     this.getReports();
@@ -37,6 +38,24 @@ export class ReportsComponent implements OnInit {
       })
     } 
     location.reload();
+  }
+  goToUserList() {
+    this.router.navigate(['/', 'users']);
+  }
+  goToAddParking() {
+    this.router.navigate(['/', 'parking']);
+  }
+  goToParkingList() {
+    this.router.navigate(['/', 'parkings']);
+  }
+  goToAddReport() {
+    this.router.navigate(['/', 'newreport']);
+  }
+  goToReportList() {
+    this.router.navigate(['/', 'reports']);
+  }
+  goToLogOff(){
+    this.router.navigate(['/', 'user']);
   }
 
 }

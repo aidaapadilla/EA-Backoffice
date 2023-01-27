@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Report } from 'src/app/interfaces/report.interface';
 import { ReportsService } from 'src/app/services/report.service';
 
@@ -19,7 +20,7 @@ export class ReportComponent implements OnInit {
     level: new FormControl()
   })
 
-  constructor(private _fb: FormBuilder, private _reportService: ReportsService) { }
+  constructor(private _fb: FormBuilder, private _reportService: ReportsService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -34,5 +35,23 @@ export class ReportComponent implements OnInit {
       }
     })
     //location.reload();
+  }
+  goToUserList() {
+    this.router.navigate(['/', 'users']);
+  }
+  goToAddParking() {
+    this.router.navigate(['/', 'parking']);
+  }
+  goToParkingList() {
+    this.router.navigate(['/', 'parkings']);
+  }
+  goToAddReport() {
+    this.router.navigate(['/', 'newreport']);
+  }
+  goToReportList() {
+    this.router.navigate(['/', 'reports']);
+  }
+  goToLogOff(){
+    this.router.navigate(['/', 'user']);
   }
 }

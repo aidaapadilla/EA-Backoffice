@@ -3,6 +3,7 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { User } from 'src/app/interfaces/user.interface';
 import { Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form',
@@ -17,7 +18,7 @@ export class FormComponent implements OnInit {
     email: new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('', [Validators.required, Validators.min(6)])
   })
-  constructor(private _fb: FormBuilder, private _userService: UsersService) { }
+  constructor(private _fb: FormBuilder, private _userService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,5 +34,11 @@ export class FormComponent implements OnInit {
         console.log(error);
       }
     })
+  }
+  goToAddUser() {
+    this.router.navigate(['/', 'newuser']);
+  }
+  goToLogin() {
+    this.router.navigate(['/', 'user']);
   }
 }

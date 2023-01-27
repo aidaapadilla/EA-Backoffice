@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ConnectableObservable, tap } from 'rxjs';
 import { User } from '../../interfaces/user.interface';
 import { UsersService } from '../../services/user.service';
@@ -12,7 +13,7 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 })
 export class UsersComponent implements OnInit {
   users!: User[];
-  constructor(private userSrv: UsersService,public dialog: MatDialog) { }
+  constructor(private userSrv: UsersService,public dialog: MatDialog, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -38,6 +39,24 @@ export class UsersComponent implements OnInit {
           this.users.push(data);
         }}
       )
+  }
+  goToUserList() {
+    this.router.navigate(['/', 'users']);
+  }
+  goToAddParking() {
+    this.router.navigate(['/', 'parking']);
+  }
+  goToParkingList() {
+    this.router.navigate(['/', 'parkings']);
+  }
+  goToAddReport() {
+    this.router.navigate(['/', 'newreport']);
+  }
+  goToReportList() {
+    this.router.navigate(['/', 'reports']);
+  }
+  goToLogOff(){
+    this.router.navigate(['/', 'user']);
   }
 
 }

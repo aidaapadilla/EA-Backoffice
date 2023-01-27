@@ -1,3 +1,17 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <h1>APARCA'M</h1>
+      <!--  <span>HOME</span> -->
+      <span class="spacer"></span>
+      <a mat-button (click)="goToUserList()"> User List </a>
+      <a mat-button (click)="goToAddParking()"> Create parking </a>
+      <a mat-button (click)="goToParkingList()"> Parking List </a>
+      <a mat-button (click)="goToAddReport()"> Report </a>
+      <a mat-button (click)="goToReportList()"> Report List </a>
+      <a mat-button (click)="goToLogOff()"> Log out </a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
 <mat-toolbar color="primary">Crear un parking</mat-toolbar>
 <router-outlet></router-outlet>
 <form [formGroup]="parkingForm" (ngSubmit)="onSubmit()">

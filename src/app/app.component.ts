@@ -33,4 +33,7 @@ export class AppComponent {
   goToReportList() {
     this.router.navigate(['/', 'reports']);
   }
+  goToLogOff(){
+    this.router.navigate(['/', 'user']);
+  }
 }
