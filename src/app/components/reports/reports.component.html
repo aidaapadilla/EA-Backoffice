@@ -1,31 +1,39 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-      <h1>APARCA'M</h1>
-      <!--  <span>HOME</span> -->
-      <span class="spacer"></span>
-      <a mat-button (click)="goToUserList()"> User List </a>
-      <a mat-button (click)="goToAddParking()"> Create parking </a>
-      <a mat-button (click)="goToParkingList()"> Parking List </a>
-      <a mat-button (click)="goToAddReport()"> Report </a>
-      <a mat-button (click)="goToReportList()"> Report List </a>
-      <a mat-button (click)="goToLogOff()"> Log out </a>
+        <h1></h1>
+        <!--  <span>HOME</span> -->
+        <span class="spacer"></span>
+        <a mat-button (click)="goToUserList()"> User List </a>
+        <a mat-button (click)="goToAddParking()"> Create parking </a>
+        <a mat-button (click)="goToParkingList()"> Parking List </a>
+        <a mat-button (click)="goToAddReport()"> Report </a>
+        <a mat-button (click)="goToReportList()"> Report List </a>
+        <a mat-button (click)="goToLogOff()"> Log out </a>
     </mat-toolbar-row>
-  </mat-toolbar>
-  <router-outlet></router-outlet>
+</mat-toolbar>
+<router-outlet></router-outlet>
 <div class="report">
-    <mat-card class="card" *ngFor="let report of listReports">
-        <mat-card-header>
-            <mat-card-title>{{ report._id }}</mat-card-title>
-            </mat-card-header>
-        <mat-card-content>Reporting user: {{ report.user }}</mat-card-content>
-        <mat-card-content>Description: {{report.text}}</mat-card-content>
-        <mat-card-content>Type: {{report.type}}</mat-card-content>
-        <mat-card-content>Level: {{report.level}}</mat-card-content>
-        <mat-card-content>Time: {{report.time}}</mat-card-content>
-        <mat-card-actions><button mat-raised-button color="warn" (click)="deleteReport(report._id!)">delete</button></mat-card-actions>
-        <!-- <p>Is the report closed?</p>
-        <input type="radio" id="closed" [(ngModel)]="myRadio" value="true">Yes
-        <input type="radio" id="open" [(ngModel)]="myRadio" value="false">No
-        <mat-card-actions><button mat-raised-button color="warn" (click)="updateStatus(this.report)">update</button></mat-card-actions> -->
-    </mat-card>
+    <div class="container">
+        <div class="card">
+            <mat-card>
+                <mat-card-title>
+                    <h1>All reports</h1>
+                </mat-card-title>
+                <mat-card-content>
+                    <mat-card class="report" *ngFor="let report of listReports">
+                        <mat-card-header>
+                            <mat-card-title>{{ report._id }}</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>Reporting user: {{ report.user }}</mat-card-content>
+                        <mat-card-content>Description: {{report.text}}</mat-card-content>
+                        <mat-card-content>Type: {{report.type}}</mat-card-content>
+                        <mat-card-content>Level: {{report.level}}</mat-card-content>
+                        <mat-card-content>Time: {{report.time}}</mat-card-content>
+                        <mat-card-actions><button mat-raised-button color="warn"
+                                (click)="deleteReport(report._id!)">delete</button></mat-card-actions>
+                    </mat-card>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
 </div>

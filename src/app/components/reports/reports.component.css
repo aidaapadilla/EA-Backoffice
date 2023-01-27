@@ -1,5 +1,26 @@
 .card {
     text-align: start;
     margin-left: 10px;
-    border-style: solid;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+div.form{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+div.report{
+    margin: 15px;
+    width: 15;
+    padding-right: 5%;
+}
+.my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  .full-width {
+    width: 100%;
+  }
+
