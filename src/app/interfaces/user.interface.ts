@@ -11,6 +11,7 @@ export class User {
     myParkings: string[];
     myReports: string[];
     chats: string[];
+    deleted: boolean;
 
     constructor(myReports: string[], name: string, email: string, points: number, language: string, 
         myBookings: string[], myOpinions: string[], myFavourites: string[], myParkings: string[]) {
@@ -24,5 +25,6 @@ export class User {
         this.myParkings = myParkings;
         this.myReports = myReports;
         this.chats = [];
+        this.deleted = false;
     }
 }

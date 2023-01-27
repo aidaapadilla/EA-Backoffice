@@ -21,14 +21,14 @@ export class UsersService {
     return this.http.get<User[]>(this.apiURL);
   }
 
-  // fet no testejat
+  // OK
   delete(id: string): Observable<User> {
     return this.http.delete<User>(this.apiURL + id);
   }
 
-  // fet no testejat
+  // OK
   logIn(userData:LogIn): Observable<HttpResponse<User>>{
-    return this.http.post<User>('http://localhost:5432/api/ath/login/', userData, {observe: 'response'})
+    return this.http.post<User>('http://localhost:5432/api/auth/login/', userData, {observe: 'response'})
   }
 
   newUserLogged(user: User) {
@@ -37,6 +37,6 @@ export class UsersService {
 
   // OK
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiURL + '/register', user)
+    return this.http.post<User>(this.apiURL, user)
   }
 }

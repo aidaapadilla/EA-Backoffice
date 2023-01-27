@@ -33,8 +33,8 @@ export class Parking {
         this.spotNumber = spotNumber;
         this.streetNumber = streetNumber;
         this.email = email;
-        this.longitude = 0;
-        this.latitude = 0;
+        this.longitude = 2.1766803070068352;
+        this.latitude = 41.39602335480191;
         this.range = "";
     }
 }

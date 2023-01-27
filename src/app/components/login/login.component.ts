@@ -14,6 +14,7 @@ import { UsersService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  title = "Aparca'm";
 
  user!: User;
   message!: String;
@@ -43,5 +44,8 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['users']);
         }
       });
+    }
+    onRegister(){
+      this.router.navigate(['newuser']);
     }
 }
