@@ -1,8 +1,24 @@
 <!-- <mat-toolbar color="primary">WELCOME TO APARCA'M</mat-toolbar> -->
-<mat-toolbar-row>
-  <button mat-icon-button>
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <h1>APARCA'M</h1>
+    <!--  <span>HOME</span> -->
+     <span class="spacer"></span>
+     <a mat-button (click)="goToAddUser()">Register</a>
+    <a mat-button (click)="goToLogin()"> Login </a>
+    <a mat-button (click)="goToUserList()"> User List </a>
+    <a mat-button (click)="goToAddParking()"> Create parking </a>
+    <a mat-button (click)="goToParkingList()"> Parking List </a>
+    <a mat-button (click)="goToAddReport()"> Report </a>
+    <a mat-button (click)="goToReportList()"> Report List </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet>
+<!-- <mat-toolbar-row>
+  <button mat-icon-button> -->
     <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
-  </button>
+  <!-- </button>
   <h1>WELCOME TO APARCA'M</h1>
   <span class="menu-spacer"></span>
   <div>
@@ -15,7 +31,7 @@
     <a mat-button (click)="goToReportList()"> Report List </a>
   </div>
 </mat-toolbar-row>
-<router-outlet></router-outlet> -->
+<router-outlet></router-outlet> --> 
 
 <!-- <ul class="nav navbar-nav">
     <li>
